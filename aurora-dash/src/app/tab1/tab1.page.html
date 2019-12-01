@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Status das máquinas
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-list-header>
+      <h5>Máquinas operando</h5>
+    </ion-list-header>
+    
+    <div></div>
+    <ion-item detail="true" (click)="showDetail(item);" *ngFor="let item of devices">
+      <ion-label>
+        {{item.deviceId}} 
+        <ion-badge slot="end" color="success">Contando</ion-badge>
+      </ion-label>
+      <ion-note slot="end" color="primary">
+        <ion-badge color="tertiary">{{item.count}}</ion-badge>
+      </ion-note>
+    </ion-item>
+
+    <ion-item detail="true">
+      <ion-label>
+          Maq 3 
+          <ion-badge slot="end" color="warning">Almoço</ion-badge>        
+      </ion-label>
+      <ion-note slot="end" color="primary">
+        <ion-badge color="tertiary">36</ion-badge>
+      </ion-note>
+    </ion-item>
+
+  </ion-list>
+
+
+  <ion-list>
+    <ion-list-header>
+      <h5>Máquinas paradas</h5>
+    </ion-list-header>
+    <ion-item detail="true">
+      <ion-label>Maq 5</ion-label>
+      <ion-note slot="end" color="tertiary">
+        <ion-badge color="danger">36</ion-badge>
+      </ion-note>
+    </ion-item>
+  </ion-list>  
+</ion-content>
