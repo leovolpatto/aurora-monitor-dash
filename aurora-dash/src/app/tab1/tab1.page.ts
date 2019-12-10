@@ -19,11 +19,16 @@ export class Tab1Page {
 
     this.ws.getSocket().subscribe((obs) => {
       if(obs instanceof Device){
-        this.devices.push(obs);
+        const x = this.devices.find((dc) => {
+          return dc.deviceId == obs.deviceId;
+        });
+        if(x == null){
+          this.devices.push(obs);
+        }
       }
       else{
         const x = this.devices.find((dc) => {
-          return dc.deviceId === obs.deviceId;
+          return dc.deviceId == obs.deviceId;
         });
         
         if(x != null){
