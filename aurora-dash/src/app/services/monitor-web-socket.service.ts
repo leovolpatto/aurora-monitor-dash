@@ -29,7 +29,7 @@ export class MonitorWebSocketService {
     }
 
     MonitorWebSocketService.events$ = new Observable(observer => {
-      MonitorWebSocketService.socket = (window as any).io('http://127.0.0.1:5000');
+      MonitorWebSocketService.socket = (window as any).io("//:81", { forceNew: true });
       MonitorWebSocketService.socket.on('newDevice', function(msg){
         let newDev = new Device();
         newDev.deviceId = msg.deviceId;
