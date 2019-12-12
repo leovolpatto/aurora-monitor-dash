@@ -11,6 +11,8 @@ import { AppComponent } from './app.component';
 import { MonitorWebSocketService } from './services/monitor-web-socket.service';
 import { DeviceDetailsPageModule } from './device-details/device-details.module';
 import { DeviceDetailsPage } from './device-details/device-details.page';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [AppComponent],
@@ -19,7 +21,7 @@ import { DeviceDetailsPage } from './device-details/device-details.page';
   ],
   imports: [
     BrowserModule, 
-    IonicModule.forRoot(), AppRoutingModule
+    IonicModule.forRoot(), AppRoutingModule, ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [
     StatusBar,
