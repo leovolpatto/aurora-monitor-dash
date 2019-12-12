@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { MonitorWebSocketService } from '../services/monitor-web-socket.service';
 import { Device } from '../Models/Device';
 import { Message } from '../Models/Message';
-import { DeviceCount } from '../Models/DeviceCount';
+import { DeviceCount, DevicePinCount } from '../Models/DeviceCount';
 import { ModalController } from '@ionic/angular';
 import { DeviceDetailsPage } from '../device-details/device-details.page';
 
@@ -27,13 +27,25 @@ export class Tab1Page {
         }
       }
       else{
-        const x = this.devices.find((dc) => {
-          return dc.deviceId == obs.deviceId;
+        const deviceCount = (obs as DeviceCount);
+
+        const device = this.devices.find((dc) => {
+          return dc.deviceId == deviceCount.deviceId;
         });
         
-        if(x != null){
-          x.deviceCounts.push(obs);
-          x.count = x.deviceCounts.length;
+        if(device != null){
+          if(device.devicePins == null){
+            device.devicePins = [];
+          }
+          let pin = device.devicePins.find(dp => dp.id == deviceCount.actionPin.id);
+          if(pin == null){
+            pin = deviceCount.actionPin;
+            device.devicePins.push(pin);
+          }
+          else{
+            pin.count = deviceCount.actionPin.count;
+            pin.status = deviceCount.actionPin.status;
+          }
         }
       }
     });

@@ -12,6 +12,31 @@
       <h5>Máquinas operando</h5>
     </ion-list-header>
     
+
+    <ion-card *ngFor="let item of devices">
+        <ion-item color="light">
+          <ion-icon name="wifi" slot="start"></ion-icon>
+          <ion-label>Placa #{{item.deviceId}}</ion-label>
+        </ion-item>
+      
+        <ion-card-content>
+          <ion-list>
+              <ion-item *ngFor="let pin of item.devicePins">
+                  <ion-label>
+                      <span class="pin-name">Pino {{pin.id}}</span>
+                      <ion-badge class="pin-badge" slot="end" color="primary">Status {{pin.status}}</ion-badge>
+                    </ion-label>
+                    <ion-note slot="end" color="primary">
+                      <ion-badge color="tertiary">{{pin.count}}</ion-badge>
+                    </ion-note>                
+              </ion-item>              
+          </ion-list>
+          <ion-item color="secundary">
+              <ion-badge class="device-status" slot="end" color="success">Contando</ion-badge>         
+          </ion-item>          
+        </ion-card-content>
+      </ion-card>
+<!--       
     <div></div>
     <ion-item detail="true" (click)="showDetail(item);" *ngFor="let item of devices">
       <ion-label>
@@ -31,7 +56,7 @@
       <ion-note slot="end" color="primary">
         <ion-badge color="tertiary">36</ion-badge>
       </ion-note>
-    </ion-item>
+    </ion-item> -->
 
   </ion-list>
 
@@ -40,11 +65,26 @@
     <ion-list-header>
       <h5>Máquinas paradas</h5>
     </ion-list-header>
-    <ion-item detail="true">
+
+
+
+    <ion-card color="light">
+        <ion-item color="dark">
+          <ion-icon name="wifi" slot="start"></ion-icon>
+          <ion-label>Placa #Maquina 3</ion-label>
+        </ion-item>
+        <ion-card-content>
+          <ion-item color="light">
+              <ion-badge class="device-status" slot="end" color="warning">Almoço</ion-badge>         
+          </ion-item>          
+        </ion-card-content>
+      </ion-card>
+
+    <!-- <ion-item detail="true">
       <ion-label>Maq 5</ion-label>
       <ion-note slot="end" color="tertiary">
         <ion-badge color="danger">36</ion-badge>
       </ion-note>
-    </ion-item>
+    </ion-item> -->
   </ion-list>  
 </ion-content>
