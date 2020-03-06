@@ -25,6 +25,14 @@ export class Tab1Page {
         if(x == null){
           this.devices.push(obs);
         }
+
+        this.devices.sort((a:Device, b:Device) => {
+          if(a.count == b.count){
+            return 0;
+          }
+
+          return a.count > b.count ? -1 : 1;
+        });
       }
       else{
         const deviceCount = (obs as DeviceCount);

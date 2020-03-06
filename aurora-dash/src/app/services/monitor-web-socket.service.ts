@@ -27,19 +27,35 @@ export class MonitorWebSocketService {
     }
 
     MonitorWebSocketService.events$ = new Observable(observer => {
-      MonitorWebSocketService.socket = (window as any).io("//:81", { forceNew: true });
-      //MonitorWebSocketService.socket = (window as any).io("//:3000", { forceNew: true });
+      //MonitorWebSocketService.socket = (window as any).io("//:81", { forceNew: true });
+      MonitorWebSocketService.socket = (window as any).io("//:4000", { forceNew: true });
       MonitorWebSocketService.socket.on('newDevice', function(msg){
+        console.log('newDevice', msg);
+
         let newDev = new Device();
         newDev.deviceId = msg.deviceId;
         newDev.name = msg.name;
+
+        const pins: Array<any> = msg.pins;
+        pins.forEach(p => {
+          let count = new DeviceCount();          
+          count.deviceId = msg.deviceId;
+          count.actionPin = new DevicePinCount();
+          count.actionPin.count = p.count;
+          count.actionPin.id = p.id;
+          count.actionPin.status = p.status;
+          count.actionPin.description = p.description;
+          newDev.count += p.count;
+          newDev.devicePins.push(count.actionPin);
+        });
+
         observer.next(newDev);
 
         MonitorWebSocketService.devices.push(newDev);
       });
 
       MonitorWebSocketService.socket.on('evt', function(msg){
-        console.log(msg);
+        console.log('evt', msg);
 
         if(msg.actionPin == null){
           return;

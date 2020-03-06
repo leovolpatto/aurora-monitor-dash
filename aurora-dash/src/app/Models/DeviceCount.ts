@@ -9,4 +9,5 @@ export class DevicePinCount{
     public id: Number;
     public count: Number;
     public status: Number;
+    public description: string;
 }

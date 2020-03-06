@@ -22,9 +22,9 @@
         <ion-card-content>
           <ion-list>
               <ion-item *ngFor="let pin of item.devicePins">
-                  <ion-label>
-                      <span class="pin-name">Pino {{pin.id}}</span>
-                      <ion-badge class="pin-badge" slot="end" color="primary">Status {{pin.status}}</ion-badge>
+                  <ion-label>                      
+                      <ion-badge class="pin-badge" slot="end" color="primary">Pin: {{pin.id}} {{pin.status}} </ion-badge> 
+                      <span class="pin-name"> {{pin.description}}</span>
                     </ion-label>
                     <ion-note slot="end" color="primary">
                       <ion-badge color="tertiary">{{pin.count}}</ion-badge>
@@ -61,13 +61,11 @@
   </ion-list>
 
 
+  <!--
   <ion-list>
     <ion-list-header>
       <h5>Máquinas paradas</h5>
     </ion-list-header>
-
-
-
     <ion-card color="light">
         <ion-item color="dark">
           <ion-icon name="wifi" slot="start"></ion-icon>
@@ -80,11 +78,11 @@
         </ion-card-content>
       </ion-card>
 
-    <!-- <ion-item detail="true">
+    <ion-item detail="true">
       <ion-label>Maq 5</ion-label>
       <ion-note slot="end" color="tertiary">
         <ion-badge color="danger">36</ion-badge>
       </ion-note>
-    </ion-item> -->
-  </ion-list>  
+    </ion-item>
+  </ion-list>  -->
 </ion-content>
