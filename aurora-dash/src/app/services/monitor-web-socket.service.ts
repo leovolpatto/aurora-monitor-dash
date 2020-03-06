@@ -27,8 +27,8 @@ export class MonitorWebSocketService {
     }
 
     MonitorWebSocketService.events$ = new Observable(observer => {
-      //MonitorWebSocketService.socket = (window as any).io("//:81", { forceNew: true });
-      MonitorWebSocketService.socket = (window as any).io("//:4000", { forceNew: true });
+      MonitorWebSocketService.socket = (window as any).io("//:81", { forceNew: true });
+      //MonitorWebSocketService.socket = (window as any).io("//:4000", { forceNew: true });
       MonitorWebSocketService.socket.on('newDevice', function(msg){
         console.log('newDevice', msg);
 
