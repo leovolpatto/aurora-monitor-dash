@@ -13,6 +13,8 @@ import { DeviceDetailsPageModule } from './device-details/device-details.module'
 import { DeviceDetailsPage } from './device-details/device-details.page';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { ReportService } from './services/report.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -21,12 +23,15 @@ import { environment } from '../environments/environment';
   ],
   imports: [
     BrowserModule, 
+    HttpClientModule,
     IonicModule.forRoot(), AppRoutingModule, ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    MonitorWebSocketService,
+    MonitorWebSocketService,    
+    HttpClient,
+    ReportService,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

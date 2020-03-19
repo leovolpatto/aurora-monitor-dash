@@ -4,12 +4,14 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HistoricoPage } from './historico.page';
+import { ReportService } from '../services/report.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   imports: [
     IonicModule,
     CommonModule,
-    FormsModule,
+    FormsModule,    
     RouterModule.forChild([{ path: '', component: HistoricoPage }])
   ],
   declarations: [HistoricoPage]
