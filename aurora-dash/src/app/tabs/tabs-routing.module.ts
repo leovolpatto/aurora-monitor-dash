@@ -8,45 +8,45 @@ const routes: Routes = [
     component: TabsPage,
     children: [
       {
-        path: 'tab1',
+        path: 'status',
         children: [
           {
             path: '',
             loadChildren: () =>
-              import('../tab1/tab1.module').then(m => m.Tab1PageModule)
+              import('../status/status.module').then(m => m.StatusPageModule)
           }
         ]
       },
       {
-        path: 'tab2',
+        path: 'historico',
         children: [
           {
             path: '',
             loadChildren: () =>
-              import('../tab2/tab2.module').then(m => m.Tab2PageModule)
+              import('../historico/historico.module').then(m => m.HistoricoPageModule)
           }
         ]
       },
       {
-        path: 'tab3',
+        path: 'configs',
         children: [
           {
             path: '',
             loadChildren: () =>
-              import('../tab3/tab3.module').then(m => m.Tab3PageModule)
+              import('../configs/configs.module').then(m => m.ConfigsPageModule)
           }
         ]
       },
       {
         path: '',
-        redirectTo: '/tabs/tab1',
+        redirectTo: '/tabs/status',
         pathMatch: 'full'
       }
     ]
   },
   {
     path: '',
-    redirectTo: '/tabs/tab1',
+    redirectTo: '/tabs/status',
     pathMatch: 'full'
   }
 ];

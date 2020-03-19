@@ -3,7 +3,7 @@ import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { Tab1Page } from './tab1.page';
+import { StatusPage } from './status.page';
 import { DeviceDetailsPage } from '../device-details/device-details.page';
 import { DeviceDetailsPageModule } from '../device-details/device-details.module';
 import { DeviceDetailsPageRoutingModule } from '../device-details/device-details-routing.module';
@@ -13,11 +13,11 @@ import { DeviceDetailsPageRoutingModule } from '../device-details/device-details
     IonicModule,
     CommonModule,
     FormsModule,
-    RouterModule.forChild([{ path: '', component: Tab1Page }])
+    RouterModule.forChild([{ path: '', component: StatusPage }])
   ],
-  declarations: [Tab1Page],
+  declarations: [StatusPage],
   entryComponents:[
         
   ]
 })
-export class Tab1PageModule {}
+export class StatusPageModule {}
