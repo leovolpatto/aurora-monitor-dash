@@ -19,7 +19,7 @@ export class ReportService {
   getSummary() : Promise<Array<IReportSummary>>{
     return new Promise((resolve, reject) => {
  
-      let url = this.API_URL + 'summary';
+      let url = this.API_URL + 'summary?fromDate=2020-03-16';
  
       //{dia: "2020-03-11T03:00:00.000Z", hora: 20, pin: 12, quantidade: "1"}
       this.http.get(url)
