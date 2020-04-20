@@ -16,14 +16,14 @@
     <ion-card *ngFor="let item of devices">
         <ion-item color="light">
           <ion-icon name="wifi" slot="start"></ion-icon>
-          <ion-label>Placa #{{item.deviceId}}</ion-label>
+          <ion-label>{{item.name}}</ion-label>
         </ion-item>
       
         <ion-card-content>
           <ion-list>
               <ion-item *ngFor="let pin of item.devicePins">
                   <ion-label>                      
-                      <ion-badge class="pin-badge" slot="end" color="primary">Pin: {{pin.id}} {{pin.status}} </ion-badge> 
+                      <!-- <ion-badge class="pin-badge" slot="end" color="primary">Pin: {{pin.id}} {{pin.status}} </ion-badge>  -->
                       <span class="pin-name"> {{pin.description}}</span>
                     </ion-label>
                     <ion-note slot="end" color="primary">

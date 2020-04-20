@@ -35,6 +35,15 @@ export class MonitorWebSocketService {
         let newDev = new Device();
         newDev.deviceId = msg.deviceId;
         newDev.name = msg.name;
+        if(msg.deviceId == 6498237){
+          newDev.name = "Enchedora Vinhedos";
+        }/*
+        else if(msg.deviceId == 8274118){
+          newDev.name = "Envasadora Tribloco 2";
+        }*/
+        else if(msg.deviceId != "Diagnostico"){
+          return;
+        }
 
         const pins: Array<any> = msg.pins;
         pins.forEach(p => {
@@ -55,6 +64,11 @@ export class MonitorWebSocketService {
       });
 
       MonitorWebSocketService.socket.on('evt', function(msg){
+        //if(msg.deviceId != 6498237 && msg.deviceId != 8274118){
+        if(msg.deviceId != 6498237 && msg.deviceId != "Diagnostico"){
+          return;
+        }
+
         console.log('evt', msg);
 
         if(msg.actionPin == null){

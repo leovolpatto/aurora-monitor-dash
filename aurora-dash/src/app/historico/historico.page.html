@@ -7,8 +7,20 @@
 </ion-header>
 
 <ion-content>
+
   <ion-list-header color="light">Produção por hora</ion-list-header>
-  <ion-card class="welcome-card">
+  <ion-card class="card2">
+    <ion-card-header>
+      <ion-card-subtitle>Periodo: Desde o início</ion-card-subtitle>
+      <!--<ion-card-title>Game of Thrones</ion-card-title>-->
+    </ion-card-header>
+    <ion-card-content>
+      <canvas #timeSeriesChart></canvas>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-list-header color="light">Produção por hora</ion-list-header>
+  <ion-card class="card1">
     <ion-card-header>
       <ion-card-subtitle>Periodo: Desde o início</ion-card-subtitle>
       <!--<ion-card-title>Game of Thrones</ion-card-title>-->
